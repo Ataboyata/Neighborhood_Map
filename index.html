@@ -14,16 +14,17 @@
           <input id="hide-listings" type="button" value="Hide Sites">
         </div>
         <hr>
-        <div>
           <input id="zoom-to-area-text" type="text" placeholder="Enter your favorite area!">
           <input id="zoom-to-area" type="button" value="Zoom">
           <ul data-bind="template: {name: 'marker', foreach:markers}"></ul>
-        </div>
       </div>
-      <div id="map"></div>
+     </div>
+    <div id="map"></div>
     </div>
 </body>
 
+<script src='js/knockout-3.3.0'></script>
+<script src='js/jquery-1.12.0.min.js'></script>
 <script async defer src=
         "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyAFzvzNXBzTXzLZaNuAEvVtuvO_ozz0vZ8&v=3&callback=initMap">
         </script>
