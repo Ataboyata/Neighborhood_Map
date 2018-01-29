@@ -1,7 +1,45 @@
 <html>
 <head>
+	<title>Neighborhood Map</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/styles.css" rel="stylesheet">
 
 </head>
 <body>
+    <div class="container">
+      <div class="options-box">
+        <h1>Queretaro's Landmarks and Historical Sites</h1>
+        <div>
+          <input id="show-listings" type="button" value="Show Listings">
+          <input id="hide-listings" type="button" value="Hide Listings">
+        </div>
+        <hr>
+        <div>
+          <input id="zoom-to-area-text" type="text" placeholder="Enter your favorite area!">
+          <input id="zoom-to-area" type="button" value="Zoom">
+        </div>
+      </div>
+      <div id="map"></div>
+    </div>
 </body>
+<script>
+      var map;
+      function initMap() {
+        // Constructor creates a new map - only center and zoom are required.
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 20.591676, lng: -100.380815},
+          zoom: 13
+        });
+        var tribeca = {lat: 40.719526, lng: -74.0089934};
+        var marker = new google.maps.Marker({
+          position: tribeca,
+          map: map,
+          title: 'First Marker!'
+        });
+      }
+    </script>
+
+<script async defer src=
+        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyAFzvzNXBzTXzLZaNuAEvVtuvO_ozz0vZ8&v=3&callback=initMap">
+        </script>
 </html>
