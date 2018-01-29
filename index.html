@@ -30,13 +30,18 @@
           center: {lat: 20.591676, lng: -100.380815},
           zoom: 13
         });
-        var tribeca = {lat: 40.719526, lng: -74.0089934};
-        var marker = new google.maps.Marker({
-          position: tribeca,
-          map: map,
-          title: 'First Marker!'
-        });
-      }
+
+        // These are 7 of the historical locations in Queretaro
+        var locations = [
+          {title: 'Los Arcos', location: {lat: 20.596527, lng: -100.372172}},
+          {title: 'Panteon de los Hombres Ilustres', location: {lat: 20.592484, lng: -100.380225}},
+          {title: 'Parque Queretaro 2000', location: {lat: 20.618610, lng: -100.394924}},
+          {title: 'Plaza de Toros Santa Maria', location: {lat: 20.574777, lng: -100.405222}},
+          {title: 'Cerro de las Campanas', location: {lat: 20.593326, lng: -100.410203}},
+          {title: 'Plaza de Armas', location: {lat: 20.592939, lng: -100.389649}},
+          {title: 'Jardin Zenea', location: {lat: 20.592761, lng: -100.392123}}
+        ];
+        }   
     </script>
 
 <script async defer src=
