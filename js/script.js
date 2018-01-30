@@ -24,6 +24,10 @@ function ViewModel() {
         };
     };
 
+    this.populate = function() {
+        self.populateInfoWindow(this, self.largeInfoWindow);
+    };
+
     this.initMap = function() {
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
@@ -55,7 +59,7 @@ function ViewModel() {
             });
             this.marker.setMap(map);
             this.markers.push(this.marker);
-            this.marker.addListener('click', self.populateAndBounceMarker);
+            this.marker.addListener('click', self.populate);
         }
     };
     this.initMap();
@@ -74,14 +78,6 @@ function ViewModel() {
         }
         return result;
     }, this);
-
-    this.populateAndBounceMarker = function() {
-        self.populateInfoWindow(this, self.largeInfoWindow);
-        this.setAnimation(google.maps.Animation.BOUNCE);
-        setTimeout((function() {
-            this.setAnimation(null);
-        }).bind(this), 1400);
-    };
 }
 
 googleError = function googleError() {
