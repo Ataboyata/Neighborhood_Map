@@ -5,7 +5,7 @@ function ViewModel() {
     var self = this;
 
     // Create a new blank array for all the listing markers.
-    var markers = [];
+    this.markers = [];
     
     this.initMap = function() {
         var mapCanvas = document.getElementById('map');
@@ -21,8 +21,8 @@ function ViewModel() {
         this.largeInfoWindow = new google.maps.InfoWindow();
         for (var i = 0; i < myLocations.length; i++) {
             this.markerTitle = myLocations[i].title;
-            this.markerLat = myLocations[i].lat;
-            this.markerLng = myLocations[i].lng;
+            this.markerLat = myLocations[i].location.lat;
+            this.markerLng = myLocations[i].location.lng;
             // Google Maps marker setup
             this.marker = new google.maps.Marker({
                 map: map,
@@ -42,6 +42,14 @@ function ViewModel() {
         }
     };
     this.initMap();
+
+    this.populateAndBounceMarker = function() {
+        self.populateInfoWindow(this, self.largeInfoWindow);
+        this.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout((function() {
+            this.setAnimation(null);
+        }).bind(this), 1400);
+    };
 }
 
 googleError = function googleError() {
