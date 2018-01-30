@@ -1,27 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
 	<title>Neighborhood Map</title>
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/styles.css" rel="stylesheet">
-
 </head>
+
 <body>
     <div class="container">
     	<div class="header">
     		<div class="options-box">
     			<h1>Queretaro's Landmarks and Historical Sites</h1>
         	</div>
+        	<ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
+        		<a href="#"><li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li></a>
+            </ul>
         </div>
         <div id="map"></div>
     </div>
 </body>
 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src='js/knockout-3.4.2.js'></script>
 <script src='js/jquery-1.12.0.min.js'></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyAFzvzNXBzTXzLZaNuAEvVtuvO_ozz0vZ8&&callback=startApp"
-        onerror="googleError()">
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyAFzvzNXBzTXzLZaNuAEvVtuvO_ozz0vZ8&&callback=startApp" onerror="googleError()"></script>
 <script async type="text/javascript" src="js/script.js"></script>
 <script async type="text/javascript" src="js/styles.js"></script>
 <script async type="text/javascript" src="js/markers.js"></script>

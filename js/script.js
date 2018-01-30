@@ -4,9 +4,26 @@ var map
 function ViewModel() {
     var self = this;
 
+    this.searchOption = ko.observable("");
+
     // Create a new blank array for all the listing markers.
     this.markers = [];
-    
+
+    this.populateInfoWindow = function(marker, infowindow){
+        if (infowindow.marker != marker){
+            infowindow.setContent('');
+            infowindow.marker = marker;
+            this.htmlContent = '<div>' + '<h4 class="iw_title">' + marker.title +
+                '</h4>';
+
+            infowindow.open(map, marker);
+
+            infowindow.addListener('closeclick', function(){
+                infowindow.marker = null;
+            });
+        };
+    };
+
     this.initMap = function() {
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
@@ -42,6 +59,21 @@ function ViewModel() {
         }
     };
     this.initMap();
+
+    this.myLocationsFilter = ko.computed(function() {
+        var result = [];
+        for (var i = 0; i < this.markers.length; i++) {
+            var markerLocation = this.markers[i];
+            if (markerLocation.title.toLowerCase().includes(this.searchOption()
+                    .toLowerCase())) {
+                result.push(markerLocation);
+                this.markers[i].setVisible(true);
+            } else {
+                this.markers[i].setVisible(false);
+            }
+        }
+        return result;
+    }, this);
 
     this.populateAndBounceMarker = function() {
         self.populateInfoWindow(this, self.largeInfoWindow);
