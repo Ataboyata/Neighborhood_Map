@@ -8,28 +8,21 @@
 <body>
     <div class="container">
     	<div class="header">
-    		<span data-bind="click: toggleMenu" class="menuIcon" style="cursor:pointer">&#9776;</span>
     		<div class="options-box">
     			<h1>Queretaro's Landmarks and Historical Sites</h1>
-    			<div>
-    				<input id="show-listings" type="button" value="Show Sites">
-          			<input id="hide-listings" type="button" value="Hide Sites">
-        		</div>
-        	<hr>
-        	<div>
-        		<h3>Options</h3>
-        		<ul id="locations" class="locations-list"></ul>
         	</div>
         </div>
-    </div>
-    <div id="map"></div>
+        <div id="map"></div>
     </div>
 </body>
 
-<script src='js/knockout-3.3.0'></script>
+<script src='js/knockout-3.4.2.js'></script>
 <script src='js/jquery-1.12.0.min.js'></script>
-<script async defer src=
-        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyAFzvzNXBzTXzLZaNuAEvVtuvO_ozz0vZ8&v=3&callback=initMap">
-        </script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyAFzvzNXBzTXzLZaNuAEvVtuvO_ozz0vZ8&&callback=startApp"
+        onerror="googleError()">
+</script>
 <script async type="text/javascript" src="js/script.js"></script>
+<script async type="text/javascript" src="js/styles.js"></script>
+<script async type="text/javascript" src="js/markers.js"></script>
 </html>
