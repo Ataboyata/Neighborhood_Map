@@ -1,5 +1,5 @@
 // These are 7 of the historical locations in Queretaro
-var locations = [
+var myLocations = [
     {
         title: 'Los Arcos Queretaro',
         location: {lat: 20.596527, lng: -100.372172},
