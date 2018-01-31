@@ -16,10 +16,16 @@
         <div class="row">
             <nav class="col-4 collapse pt-1 bg-inverse sidebar_width" id="sidebar">
                     <h1>Queretaro's Landmarks and Historical Sites</h1>
+                    <hr class="sidebar_hr">
+                    <div class="wikipedia-container">
+                        <h5 id="wikipedia-header">Relevant Wikipedia Links</h5>
+                        <ul id="wikipedia-links">Click on a Location to see relevant articles </ul>
+                    </div>
+                    <hr class="sidebar_hr">
                     <!-- Search Box -->
                     <input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations...">
+                    <br><br>
                     <!-- Populates Markers with Status == Visible -->
-                    <hr class="sidebar_hr">
                     <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
                         <a href="#">
                             <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li>

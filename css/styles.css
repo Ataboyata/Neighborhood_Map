@@ -9,8 +9,28 @@ h1 {
   text-align: center;
 }
 
+h3,h5{
+  color: #fff;
+}
+
 h4 {
   font-size: 18px;
+}
+
+h5{
+  font-size: 18px;
+}
+
+ul{
+  color:#fff;
+}
+
+a{
+  color:#fff;
+}
+
+#wiki-links{
+  text-decoration: underline;
 }
 
 #hide-listings,

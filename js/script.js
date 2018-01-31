@@ -48,6 +48,36 @@ function ViewModel() {
             // 50 meters of the markers position
             streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
 
+            // Load Wikipedia Articles
+            var $wikiElem = $('#wikipedia-links');
+            // clear out old data before new request
+            $wikiElem.text("");
+            // Wikipedias URL API 
+            var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
+
+            // Stop the Request after a certain time interval    
+            var wikiRequestTimeout = setTimeout(function(){
+                $wikiElem.text("No Wikipedia Resources for this Location");
+            }, 8000);
+
+            $.ajax({
+                url: wikiUrl,
+                dataType: 'jsonp',
+                //jsonp:"callback" by default by setting jsonp the callback would be corrected
+                success: function( response ){
+                    var articleList = response[1];
+
+                    for (var i = 0; i < articleList.length; i++){
+                        articleStr = articleList[i];
+                        var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+                        $wikiElem.append(
+                            '<li><a id="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li>');
+                    };
+
+                    clearTimeout(wikiRequestTimeout);
+                }
+            });
+
             // Open the infowindow on the correct marker.
             infowindow.open(map, marker);
 
