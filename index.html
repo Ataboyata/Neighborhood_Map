@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <div class="container-fluid h-100">
-        <div class="row h-100">
-            <nav class="col-2 collapse bg-inverse pt-2 h-100 sidebar_width" id="sidebar">
-                    <h1 class="app_title text-white">Queretaro's Landmarks and Historical Sites</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-4 pt-1 bg-inverse sidebar_width" id="sidebar">
+                    <h1>Queretaro's Landmarks and Historical Sites</h1>
                     <!-- Search Box -->
                     <input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations...">
                     <!-- Populates Markers with Status == Visible -->
@@ -27,7 +27,7 @@
                     </ul>
             </nav>
             <main class="col p-0 navbar-inverse">
-                <a href class="float-right m-3 navbar-light" data-target="#sidebar" data-toggle="collapse">
+                <a href class="float-left m-3" data-target="#sidebar" data-toggle="collapse">
                     <span class="navbar-toggler-icon"></span>
                 </a>
                 <div class="content bg-inverse">

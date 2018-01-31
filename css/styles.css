@@ -3,7 +3,7 @@ input {
 }
 
 h1 {
-  color: #525454;
+  color: #fff;
   font-size: 22px;
   margin: 0 0 10px 0;
   text-align: center;
@@ -14,16 +14,15 @@ h1 {
   width: 48%;
 }
 
+.search {
+  width: 100%;
+}
+
 hr {
   background: #D0D7D9;
   height: 1px;
   margin: 20px 0 20px 0;
   border: none;
-}
-
-#places-search,
-#search-within-time-text {
-  width: 84%;
 }
 
 .text {
