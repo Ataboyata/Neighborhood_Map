@@ -12,18 +12,20 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="options-box">
-            <h1>Queretaro's Landmarks and Historical Sites</h1>
-            <!-- Search Box -->
-            <input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations...">
-            <!-- Populates Markers with Status == Visible -->
-            <ul data-bind="foreach: myLocationsFilter">
-                <a href="#">
-                    <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li>
-                </a>
-            </ul>
-        </div>
+    <div class="container-fluid">
+        <nav class="col-2 collapse bg-inverse pt-2 h-100 sidebar_width" id="sidebar">
+            <div class="options-box">
+                <h1>Queretaro's Landmarks and Historical Sites</h1>
+                <!-- Search Box -->
+                <input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations...">
+                <!-- Populates Markers with Status == Visible -->
+                <ul data-bind="foreach: myLocationsFilter">
+                    <a href="#">
+                        <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
     </div>
     <div id="map"></div>
 </body>
