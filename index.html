@@ -5,15 +5,20 @@
 	<title>Neighborhood Map</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="css/styles.css" rel="stylesheet">
+	
+    <!-- Style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
         <div class="options-box">
             <h1>Queretaro's Landmarks and Historical Sites</h1>
+            <!-- Search Box -->
             <input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations...">
-            <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
+            <!-- Populates Markers with Status == Visible -->
+            <ul data-bind="foreach: myLocationsFilter">
                 <a href="#">
                     <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li>
                 </a>
