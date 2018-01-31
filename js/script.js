@@ -16,11 +16,12 @@ function ViewModel() {
             infowindow.setContent('');
             infowindow.marker = marker;
             
-            this.htmlContent = '<div>' + '<h4 class="iw_title">' + marker.title +
+            this.htmlContent = '<div>' + '<h4>' + marker.title +
                 '</h4>';
 
-            infowindow.open(map, marker);
+            infowindow.setContent(self.htmlContent);
 
+            infowindow.open(map, marker);
 
             infowindow.addListener('closeclick', function(){
                 infowindow.marker = null;

@@ -9,6 +9,10 @@ h1 {
   text-align: center;
 }
 
+h4 {
+  font-size: 18px;
+}
+
 #hide-listings,
 #show-listings {
   width: 48%;
