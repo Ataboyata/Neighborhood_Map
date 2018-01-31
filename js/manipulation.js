@@ -3,7 +3,7 @@ $(document).ready(function() {
     windowHeight = $(window).innerHeight();
     $('#map').css('min-height', windowHeight);
     $('#sidebar').css('min-height', windowHeight);
-  };
+  }
   setHeight();
 
   $(window).resize(function() {
