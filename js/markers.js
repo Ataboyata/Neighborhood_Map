@@ -12,7 +12,7 @@ var myLocations = [
     },
     {
         title: 'Parque Queretaro 2000',
-        location: {lat: 20.618610, lng: -100.394924},
+        location: {lat: 20.617203, lng: -100.398485},
         id: "loc3",
     },
     {
