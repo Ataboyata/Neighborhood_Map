@@ -33,6 +33,11 @@ hr {
   font-size: 12px;
 }
 
+#pano {
+        width: 200px;
+        height: 200px;
+}
+
 #toggle-drawing {
   width: 27%;
   position: relative;
