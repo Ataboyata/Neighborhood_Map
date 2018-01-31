@@ -10,15 +10,14 @@
 
 <body>
     <div class="container">
-    	<div class="header">
-    		<div class="options-box">
-    			<h1>Queretaro's Landmarks and Historical Sites</h1>
-                <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
-                    <a href="#">
-                        <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populate"></li>
-                    </a>
-                </ul>
-        	</div>
+        <div class="options-box">
+            <h1>Queretaro's Landmarks and Historical Sites</h1>
+            <input class="search" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations...">
+            <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
+                <a href="#">
+                    <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populate"></li>
+                </a>
+            </ul>
         </div>
     </div>
     <div id="map"></div>
