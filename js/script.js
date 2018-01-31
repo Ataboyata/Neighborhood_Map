@@ -60,6 +60,9 @@ function ViewModel() {
     this.populateAndBounceMarker = function() {
         self.populateInfoWindow(this, self.largeInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout((function(){
+            this.setAnimation(null);
+        }).bind(this),2500);
     };
 
     //Initializes Map with the Google Maps API and uses the markers info
