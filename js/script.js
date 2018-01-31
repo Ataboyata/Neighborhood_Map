@@ -87,6 +87,8 @@ function ViewModel() {
         };
     };
 
+    //Populates teh map with all the visible markers with an animation
+    //effect.
     this.populateAndBounceMarker = function() {
         self.populateInfoWindow(this, self.largeInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
