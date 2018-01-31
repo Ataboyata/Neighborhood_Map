@@ -9,14 +9,18 @@ function ViewModel() {
     // Create a new blank array for all the listing markers.
     this.markers = [];
 
+    // Populates Info Window with all the locations listed on the
+    // markers.js file. 
     this.populateInfoWindow = function(marker, infowindow){
         if (infowindow.marker != marker){
             infowindow.setContent('');
             infowindow.marker = marker;
+            
             this.htmlContent = '<div>' + '<h4 class="iw_title">' + marker.title +
                 '</h4>';
 
             infowindow.open(map, marker);
+
 
             infowindow.addListener('closeclick', function(){
                 infowindow.marker = null;
@@ -24,10 +28,14 @@ function ViewModel() {
         };
     };
 
-    this.populate = function() {
+    this.populateAndBounceMarker = function() {
         self.populateInfoWindow(this, self.largeInfoWindow);
+        this.setAnimation(google.maps.Animation.BOUNCE);
     };
 
+    //Initializes Map with the Google Maps API and uses the markers info
+    //from the markers.js file to place markers in the map, according to 
+    //their latitudes and longitudes
     this.initMap = function() {
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
@@ -59,11 +67,16 @@ function ViewModel() {
             });
             this.marker.setMap(map);
             this.markers.push(this.marker);
-            this.marker.addListener('click', self.populate);
+            this.marker.addListener('click', self.populateAndBounceMarker);
         }
     };
     this.initMap();
 
+    // Function for the search filter that transforms the search to lower 
+    // case and then filters out the possible option, so that the results
+    // are filtered while the user types by chaing the visible status of the
+    // markers. By changin the status of the marker itself, the change is 
+    // reflected in both the infowindow and the map. 
     this.myLocationsFilter = ko.computed(function() {
         var result = [];
         for (var i = 0; i < this.markers.length; i++) {
@@ -80,10 +93,13 @@ function ViewModel() {
     }, this);
 }
 
+// Displays an error message in case the Google Maps API didn't function
+// properly
 googleError = function googleError() {
     alert('Google Maps did not load, please refresh the page');
 };
 
+// Runs the View Model to start the app
 function startApp() {
     ko.applyBindings(new ViewModel());
 }
