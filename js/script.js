@@ -71,7 +71,7 @@ function ViewModel() {
                         articleStr = articleList[i];
                         var url = 'http://en.wikipedia.org/wiki/' + articleStr;
                         $wikiElem.append(
-                            '<li><a id="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li>');
+                            '<li><a class="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li>');
                     };
 
                     clearTimeout(wikiRequestTimeout);
@@ -160,7 +160,7 @@ function ViewModel() {
 // Displays an error message in case the Google Maps API didn't function
 // properly
 googleError = function googleError() {
-    alert('Google Maps did not load, please refresh the page');
+    alert('Google Maps did not load, please contact system administrator');
 };
 
 // Runs the View Model to start the app

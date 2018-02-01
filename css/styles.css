@@ -9,7 +9,11 @@ h1 {
   text-align: center;
 }
 
-h3,h5{
+h3 {
+  color: #fff;
+}
+
+h5 {
   color: #fff;
 }
 
@@ -17,15 +21,15 @@ h4 {
   font-size: 18px;
 }
 
-h5{
+h5 {
   font-size: 18px;
 }
 
-ul{
+ul {
   color:#fff;
 }
 
-a{
+a {
   color:#fff;
 }
 
@@ -37,14 +41,10 @@ a{
   width: 100%;
 }
 
-#wiki-links{
+.wiki-links{
   text-decoration: underline;
 }
 
-#hide-listings,
-#show-listings {
-  width: 48%;
-}
 
 hr {
   background: #D0D7D9;
