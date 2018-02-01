@@ -53,7 +53,7 @@ function ViewModel() {
             // clear out old data before new request
             $wikiElem.text("");
             // Wikipedias URL API 
-            var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
+            var wikiUrl = 'http://es.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
 
             // Stop the Request after a certain time interval    
             var wikiRequestTimeout = setTimeout(function(){

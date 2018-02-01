@@ -1,7 +1,7 @@
 // These are 7 of the historical locations in Queretaro
 var myLocations = [
     {
-        title: 'Los Arcos Queretaro',
+        title: 'Acueducto de Querétaro',
         location: {lat: 20.596527, lng: -100.372172},
         id: "loc1",
     },
@@ -11,13 +11,13 @@ var myLocations = [
         id: "loc2",
     },
     {
-        title: 'Parque Queretaro 2000',
-        location: {lat: 20.617203, lng: -100.398485},
+        title: 'El Cerrito (Querétaro)',
+        location: {lat: 20.551246, lng: -100.443444},
         id: "loc3",
     },
     {
-        title: 'Plaza de Toros Santa Maria',
-        location: {lat: 20.574777, lng: -100.405222},
+        title: 'Estadio Corregidora',
+        location: {lat: 20.578008, lng: -100.366087},
         id: "loc4",
     },
     {
@@ -26,13 +26,28 @@ var myLocations = [
         id: "loc5",
     },
     {
-        title: 'Plaza de Armas',
+        title: 'Centro histórico de Santiago de Querétaro',
         location: {lat: 20.592939, lng: -100.389649},
         id: "loc6",
     },
     {
-        title: 'Jardin Zenea',
+        title: 'Templo y exconvento de San Francisco de Asís de Querétaro',
         location: {lat: 20.592761, lng: -100.392123},
         id: "loc7",
+    },
+    {
+        title: 'Monterrey Institute of Technology and Higher Education',
+        location: {lat: 20.613333, lng: -100.403586},
+        id: "loc8",
+    },
+    {
+        title: 'Parque nacional El Cimatario',
+        location: {lat: 20.546425, lng: -100.350564},
+        id: "loc9",
+    },
+    {
+        title: 'Universidad Autónoma de Querétaro',
+        location: {lat: 20.591309, lng: -100.410866},
+        id: "loc10",
     }
 ];
