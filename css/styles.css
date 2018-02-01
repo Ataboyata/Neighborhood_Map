@@ -29,6 +29,14 @@ a{
   color:#fff;
 }
 
+.sidebar_width {
+    min-width: 250px;
+}
+
+.search {
+  width: 100%;
+}
+
 #wiki-links{
   text-decoration: underline;
 }
@@ -36,10 +44,6 @@ a{
 #hide-listings,
 #show-listings {
   width: 48%;
-}
-
-.search {
-  width: 100%;
 }
 
 hr {
@@ -64,10 +68,19 @@ hr {
   margin-left: 10px;
 }
 
+
+
 #zoom-to-area-text {
   width: 70%;
 }
 
 #zoom-to-area {
   width: 24%;
+}
+
+@media (max-width: 768px) {
+    .search {
+        font-size: .7em;
+        margin-top: 5px;
+    }
 }
