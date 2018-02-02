@@ -5,6 +5,7 @@ function ViewModel() {
     var self = this;
 
     self.searchOption = ko.observable("");
+    self.wikiarticles = ko.observableArray();
 
     // Create a new blank array for all the listing markers.
     self.markers = [];
@@ -21,6 +22,36 @@ function ViewModel() {
             var streetViewService = new google.maps.StreetViewService();
             var radius =100;
 
+            // Load Wikipedia Articles
+            // Wikipedias URL API
+            var wikiUrl = 'http://es.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
+            // Stop the Request after a certain time interval    
+            //var wikiRequestTimeout = setTimeout(function(){
+            //    self.wikiarticles([]);
+            //    self.wikiarticles.push({url:'<p>No Wikipedia Resources for this Location</p>'});
+            //}, 3000);
+
+            $.ajax({
+                url: wikiUrl,
+                dataType: 'jsonp'
+            }).done(function (response) {
+                var articleList = response[1];
+                for (var i = 0; i < articleList.length; i++){
+                    self.wikiarticles([]);
+                    articleStr = articleList[i];
+                    var url = 'http://es.wikipedia.org/wiki/' + articleStr;
+                    self.wikiarticles.push({url:'<a class="wiki-links" href="' 
+                        + url 
+                        + '" target="_blank">' 
+                        + articleStr 
+                        + '</a>'});
+                };
+                    //clearTimeout(wikiRequestTimeout);
+            }).fail(function (jqXHR, textStatus) {
+                alert("There was an error loading Relevant Wikipedia Links");
+            });
+
+
             // In case the status is OK, which means the pano was found, compute the
             // position of the streetview image, then calculate the heading, then get a
             // panorama from that and set the options
@@ -30,6 +61,7 @@ function ViewModel() {
                     var heading = google.maps.geometry.spherical.computeHeading(
                         nearStreetViewLocation, marker.position);
                     self.htmlContent = '<div>' + marker.title + '</div><div id="pano"></div>';
+                    infowindow.setContent(self.htmlContent)
                     var panoramaOptions = {
                     position: nearStreetViewLocation,
                     pov: {
@@ -48,33 +80,6 @@ function ViewModel() {
             // 50 meters of the markers position
             streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
 
-            // Load Wikipedia Articles
-            // Wikipedias URL API 
-            var wikiUrl = 'http://es.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
-
-            // Stop the Request after a certain time interval    
-            var wikiRequestTimeout = setTimeout(function(){
-                $wikiElem.text('No Wikipedia Resources for this Location');
-            }, 3000);
-
-            $.ajax({
-                url: wikiUrl,
-                dataType: 'jsonp',
-                //jsonp:"callback" by default by setting jsonp the callback would be corrected
-                success: function( response ){
-                    var articleList = response[1];
-
-                    for (var i = 0; i < articleList.length; i++){
-                        articleStr = articleList[i];
-                        var url = 'http://es.wikipedia.org/wiki/' + articleStr;
-                        self.htmlContentWikipedia = '<div><li><a class="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li></div>';
-                        infowindow.setContent(self.htmlContent + self.htmlContentWikipedia);
-                    };
-
-                    clearTimeout(wikiRequestTimeout);
-                }
-            })
-
             // Open the infowindow on the correct marker.
             infowindow.open(map, marker);
 
@@ -91,7 +96,7 @@ function ViewModel() {
         this.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout((function(){
             this.setAnimation(null);
-        }).bind(this),2500);
+        }).bind(this),2100);
     };
 
     //Initializes Map with the Google Maps API and uses the markers info
