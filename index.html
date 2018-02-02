@@ -5,7 +5,7 @@
     <title>Neighborhood Map</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
@@ -15,24 +15,24 @@
     <div class="container-fluid">
         <div class="row">
             <nav class="col-2 collapse pt-1 bg-inverse sidebar_width" id="sidebar">
-                    <h1>Queretaro's Landmarks and Historical Sites</h1>
-                    <hr class="sidebar_hr">
-                    <div>
-                        <p id="wikipedia-header">Relevant Wikipedia Articles</p>
-                        <ul data-bind="foreach: wikiarticles">
-                            <a href="#">
-                                <li data-bind="html: url"></li>
-                            </a>
-                        </ul>
-                    </div>
-                    <hr class="sidebar_hr">
-                    <!-- Search Box -->
-                    <input class="search" data-bind="textInput: searchOption" placeholder="Search Locations...">
-                    <br><br>
-                    <!-- Populates Markers with Status == Visible -->
-                    <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
-                        <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li>
+                <h1>Queretaro's Landmarks and Historical Sites</h1>
+                <hr class="sidebar_hr">
+                <div>
+                    <p id="wikipedia-header">Relevant Wikipedia Articles</p>
+                    <ul data-bind="foreach: wikiarticles">
+                        <a href="#">
+                            <li data-bind="html: url"></li>
+                        </a>
                     </ul>
+                </div>
+                <hr class="sidebar_hr">
+                <!-- Search Box -->
+                <input class="search" data-bind="textInput: searchOption" placeholder="Search Locations...">
+                <br><br>
+                <!-- Populates Markers with Status == Visible -->
+                <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
+                    <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li>
+                </ul>
             </nav>
             <main class="col p-0 navbar-inverse">
                 <a class="float-left m-3" data-target="#sidebar" data-toggle="collapse">
@@ -40,22 +40,23 @@
                 </a>
                 <div class="content bg-inverse">
                     <div id="map">
-                        <p class="map_error"></p> 
+                        <p class="map_error"></p>
                     </div>
                 </div>
             </main>
         </div>
     </div>
 
-<script src="js/knockout-3.4.2.js" charset="utf-8"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="js/markers.js"></script>
-<script src="js/styles.js"></script>
-<script src="js/script.js"></script>
-<script src="js/manipulation.js" charset="utf-8"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFzvzNXBzTXzLZaNuAEvVtuvO_ozz0vZ8&libraries=geometry&v=3&callback=startApp" onerror="googleError()"></script>
+    <script src="js/knockout-3.4.2.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="js/markers.js"></script>
+    <script src="js/styles.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/manipulation.js" charset="utf-8"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFzvzNXBzTXzLZaNuAEvVtuvO_ozz0vZ8&libraries=geometry&v=3&callback=startApp" onerror="googleError()"></script>
 
 </body>
+
 </html>
