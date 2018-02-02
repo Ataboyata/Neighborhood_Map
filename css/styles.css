@@ -2,6 +2,11 @@ input {
   font-size: 12px;
 }
 
+p {
+  color: #fff;
+  text-align: center;
+}
+
 h1 {
   color: #fff;
   font-size: 22px;
@@ -26,10 +31,6 @@ h5 {
 }
 
 ul {
-  color:#fff;
-}
-
-a {
   color:#fff;
 }
 
