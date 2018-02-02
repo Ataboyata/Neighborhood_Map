@@ -29,7 +29,7 @@ function ViewModel() {
                     var nearStreetViewLocation = data.location.latLng;
                     var heading = google.maps.geometry.spherical.computeHeading(
                         nearStreetViewLocation, marker.position);
-                    infowindow.setContent('<div>' + marker.title + '</div><div id="pano"></div>');
+                    self.htmlContent = '<div>' + marker.title + '</div><div id="pano"></div>';
                     var panoramaOptions = {
                     position: nearStreetViewLocation,
                     pov: {
@@ -40,8 +40,8 @@ function ViewModel() {
                 var panorama = new google.maps.StreetViewPanorama(
                     document.getElementById('pano'), panoramaOptions);
                 } else {
-                    infowindow.setContent('<div>' + marker.title + '</div>' +
-                        '<div>No Street View Found</div>');
+                    self.htmlContent = '<div>' + marker.title + '</div>' +
+                        '<div>No Street View Found</div>';
                 }
             }
             // Use streetview service to get the closest streetview image within
@@ -49,26 +49,13 @@ function ViewModel() {
             streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
 
             // Load Wikipedia Articles
-            var $wikiElem = $('#wikipedia-links');
-            // clear out old data before new request
-            $wikiElem.text("");
             // Wikipedias URL API 
             var wikiUrl = 'http://es.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
 
-            $.getJSON(wikiUrl).done(function(marker){
-                var response = response[1];
-                for (var i = 0; i < articleList.length; i++){
-                        articleStr = articleList[i];
-                        var url = 'http://es.wikipedia.org/wiki/' + articleStr;
-                        $wikiElem.append(
-                            '<li><a class="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li>');
-                    };
-
-            })
             // Stop the Request after a certain time interval    
             var wikiRequestTimeout = setTimeout(function(){
-                $wikiElem.text("No Wikipedia Resources for this Location");
-            }, 5000);
+                $wikiElem.text('No Wikipedia Resources for this Location');
+            }, 3000);
 
             $.ajax({
                 url: wikiUrl,
@@ -80,13 +67,13 @@ function ViewModel() {
                     for (var i = 0; i < articleList.length; i++){
                         articleStr = articleList[i];
                         var url = 'http://es.wikipedia.org/wiki/' + articleStr;
-                        $wikiElem.append(
-                            '<li><a class="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li>');
+                        self.htmlContentWikipedia = '<div><li><a class="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li></div>';
+                        infowindow.setContent(self.htmlContent + self.htmlContentWikipedia);
                     };
 
                     clearTimeout(wikiRequestTimeout);
                 }
-            });
+            })
 
             // Open the infowindow on the correct marker.
             infowindow.open(map, marker);
