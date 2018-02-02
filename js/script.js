@@ -4,14 +4,14 @@ var map
 function ViewModel() {
     var self = this;
 
-    this.searchOption = ko.observable("");
+    self.searchOption = ko.observable("");
 
     // Create a new blank array for all the listing markers.
-    this.markers = [];
+    self.markers = [];
 
     // Populates Info Window with all the locations listed on the
     // markers.js file. 
-    this.populateInfoWindow = function(marker, infowindow){   
+    self.populateInfoWindow = function(marker, infowindow){   
         // Check to make sure the infowindow is not already opened on this marker.
         if (infowindow.marker != marker){
             // Clear the infowindow content to give the streetview time to load.
@@ -55,10 +55,20 @@ function ViewModel() {
             // Wikipedias URL API 
             var wikiUrl = 'http://es.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
 
+            $.getJSON(wikiUrl).done(function(marker){
+                var response = response[1];
+                for (var i = 0; i < articleList.length; i++){
+                        articleStr = articleList[i];
+                        var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+                        $wikiElem.append(
+                            '<li><a class="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li>');
+                    };
+
+            })
             // Stop the Request after a certain time interval    
             var wikiRequestTimeout = setTimeout(function(){
                 $wikiElem.text("No Wikipedia Resources for this Location");
-            }, 8000);
+            }, 5000);
 
             $.ajax({
                 url: wikiUrl,
@@ -89,7 +99,7 @@ function ViewModel() {
 
     //Populates teh map with all the visible markers with an animation
     //effect.
-    this.populateAndBounceMarker = function() {
+    self.populateAndBounceMarker = function() {
         self.populateInfoWindow(this, self.largeInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout((function(){
@@ -100,7 +110,7 @@ function ViewModel() {
     //Initializes Map with the Google Maps API and uses the markers info
     //from the markers.js file to place markers in the map, according to 
     //their latitudes and longitudes
-    this.initMap = function() {
+    self.initMap = function() {
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
             center: new google.maps.LatLng(20.591676, -100.380815),
@@ -111,50 +121,50 @@ function ViewModel() {
         map = new google.maps.Map(mapCanvas, mapOptions);
 
         // Set InfoWindow
-        this.largeInfoWindow = new google.maps.InfoWindow();
+        self.largeInfoWindow = new google.maps.InfoWindow();
         for (var i = 0; i < myLocations.length; i++) {
-            this.markerTitle = myLocations[i].title;
-            this.markerLat = myLocations[i].location.lat;
-            this.markerLng = myLocations[i].location.lng;
+            self.markerTitle = myLocations[i].title;
+            self.markerLat = myLocations[i].location.lat;
+            self.markerLng = myLocations[i].location.lng;
             // Google Maps marker setup
-            this.marker = new google.maps.Marker({
+            self.marker = new google.maps.Marker({
                 map: map,
                 position: {
-                    lat: this.markerLat,
-                    lng: this.markerLng
+                    lat: self.markerLat,
+                    lng: self.markerLng
                 },
-                title: this.markerTitle,
-                lat: this.markerLat,
-                lng: this.markerLng,
+                title: self.markerTitle,
+                lat: self.markerLat,
+                lng: self.markerLng,
                 id: i,
                 animation: google.maps.Animation.DROP
             });
-            this.marker.setMap(map);
-            this.markers.push(this.marker);
-            this.marker.addListener('click', self.populateAndBounceMarker);
+            self.marker.setMap(map);
+            self.markers.push(self.marker);
+            self.marker.addListener('click', self.populateAndBounceMarker);
         }
     };
-    this.initMap();
+    self.initMap();
 
     // Function for the search filter that transforms the search to lower 
     // case and then filters out the possible option, so that the results
     // are filtered while the user types by chaing the visible status of the
     // markers. By changin the status of the marker itself, the change is 
     // reflected in both the infowindow and the map. 
-    this.myLocationsFilter = ko.computed(function() {
+    self.myLocationsFilter = ko.computed(function() {
         var result = [];
-        for (var i = 0; i < this.markers.length; i++) {
-            var markerLocation = this.markers[i];
-            if (markerLocation.title.toLowerCase().includes(this.searchOption()
+        for (var i = 0; i < self.markers.length; i++) {
+            var markerLocation = self.markers[i];
+            if (markerLocation.title.toLowerCase().includes(self.searchOption()
                     .toLowerCase())) {
                 result.push(markerLocation);
-                this.markers[i].setVisible(true);
+                self.markers[i].setVisible(true);
             } else {
-                this.markers[i].setVisible(false);
+                self.markers[i].setVisible(false);
             }
         }
         return result;
-    }, this);
+    }, self);
 }
 
 // Displays an error message in case the Google Maps API didn't function
