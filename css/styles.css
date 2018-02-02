@@ -31,7 +31,11 @@ h5 {
 }
 
 ul {
-  color:#fff;
+  color: #fff;
+}
+
+li {
+  color: #fff;
 }
 
 .sidebar_width {
@@ -43,6 +47,7 @@ ul {
 }
 
 .wiki-links{
+  color: #fff;
   text-decoration: underline;
 }
 
