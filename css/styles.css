@@ -1,41 +1,41 @@
 input {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 p {
-  color: #fff;
-  text-align: center;
+    color: #fff;
+    text-align: center;
 }
 
 h1 {
-  color: #fff;
-  font-size: 22px;
-  margin: 0 0 10px 0;
-  text-align: center;
+    color: #fff;
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    text-align: center;
 }
 
 h3 {
-  color: #fff;
+    color: #fff;
 }
 
 h5 {
-  color: #fff;
+    color: #fff;
 }
 
 h4 {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 h5 {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 ul {
-  color: #fff;
+    color: #fff;
 }
 
 li {
-  color: #fff;
+    color: #fff;
 }
 
 .sidebar_width {
@@ -43,50 +43,47 @@ li {
 }
 
 .search {
-  width: 100%;
+    width: 100%;
 }
 
-.wiki-links{
-  color: #fff;
-  text-decoration: underline;
+.wiki-links {
+    color: #fff;
+    text-decoration: underline;
 }
-
 
 hr {
-  background: #D0D7D9;
-  height: 1px;
-  margin: 20px 0 20px 0;
-  border: none;
+    background: #D0D7D9;
+    height: 1px;
+    margin: 20px 0 20px 0;
+    border: none;
 }
 
 .text {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 #pano {
-        width: 200px;
-        height: 200px;
+    width: 200px;
+    height: 200px;
 }
 
 #toggle-drawing {
-  width: 27%;
-  position: relative;
-  margin-left: 10px;
+    width: 27%;
+    position: relative;
+    margin-left: 10px;
 }
 
-
-
 #zoom-to-area-text {
-  width: 70%;
+    width: 70%;
 }
 
 #zoom-to-area {
-  width: 24%;
+    width: 24%;
 }
 
 @media (max-width: 768px) {
     .search {
         font-size: .7em;
         margin-top: 5px;
-    }
+    };
 }
