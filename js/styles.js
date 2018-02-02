@@ -1,18 +1,14 @@
-var styles = [
-    {
+var styles = [{
         "featureType": "all",
         "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "on"
-            }
-        ]
+        "stylers": [{
+            "visibility": "on"
+        }]
     },
     {
         "featureType": "all",
         "elementType": "labels",
-        "stylers": [
-            {
+        "stylers": [{
                 "visibility": "off"
             },
             {
@@ -23,8 +19,7 @@ var styles = [
     {
         "featureType": "all",
         "elementType": "labels.text.fill",
-        "stylers": [
-            {
+        "stylers": [{
                 "saturation": 36
             },
             {
@@ -41,8 +36,7 @@ var styles = [
     {
         "featureType": "all",
         "elementType": "labels.text.stroke",
-        "stylers": [
-            {
+        "stylers": [{
                 "visibility": "off"
             },
             {
@@ -56,17 +50,14 @@ var styles = [
     {
         "featureType": "all",
         "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
+        "stylers": [{
+            "visibility": "off"
+        }]
     },
     {
         "featureType": "administrative",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#000000"
             },
             {
@@ -77,8 +68,7 @@ var styles = [
     {
         "featureType": "administrative",
         "elementType": "geometry.stroke",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#000000"
             },
             {
@@ -92,8 +82,7 @@ var styles = [
     {
         "featureType": "landscape",
         "elementType": "geometry",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#000000"
             },
             {
@@ -104,62 +93,49 @@ var styles = [
     {
         "featureType": "landscape",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#4d6059"
-            }
-        ]
+        "stylers": [{
+            "color": "#4d6059"
+        }]
     },
     {
         "featureType": "landscape",
         "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#4d6059"
-            }
-        ]
+        "stylers": [{
+            "color": "#4d6059"
+        }]
     },
     {
         "featureType": "landscape.natural",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#4d6059"
-            }
-        ]
+        "stylers": [{
+            "color": "#4d6059"
+        }]
     },
     {
         "featureType": "poi",
         "elementType": "geometry",
-        "stylers": [
-            {
-                "lightness": 21
-            }
-        ]
+        "stylers": [{
+            "lightness": 21
+        }]
     },
     {
         "featureType": "poi",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#4d6059"
-            }
-        ]
+        "stylers": [{
+            "color": "#4d6059"
+        }]
     },
     {
         "featureType": "poi",
         "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#4d6059"
-            }
-        ]
+        "stylers": [{
+            "color": "#4d6059"
+        }]
     },
     {
         "featureType": "road",
         "elementType": "geometry",
-        "stylers": [
-            {
+        "stylers": [{
                 "visibility": "on"
             },
             {
@@ -170,17 +146,14 @@ var styles = [
     {
         "featureType": "road",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#7f8d89"
-            }
-        ]
+        "stylers": [{
+            "color": "#7f8d89"
+        }]
     },
     {
         "featureType": "road.highway",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#7f8d89"
             },
             {
@@ -191,8 +164,7 @@ var styles = [
     {
         "featureType": "road.highway",
         "elementType": "geometry.stroke",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#7f8d89"
             },
             {
@@ -206,8 +178,7 @@ var styles = [
     {
         "featureType": "road.arterial",
         "elementType": "geometry",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#000000"
             },
             {
@@ -218,26 +189,21 @@ var styles = [
     {
         "featureType": "road.arterial",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#7f8d89"
-            }
-        ]
+        "stylers": [{
+            "color": "#7f8d89"
+        }]
     },
     {
         "featureType": "road.arterial",
         "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#7f8d89"
-            }
-        ]
+        "stylers": [{
+            "color": "#7f8d89"
+        }]
     },
     {
         "featureType": "road.local",
         "elementType": "geometry",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#000000"
             },
             {
@@ -248,26 +214,21 @@ var styles = [
     {
         "featureType": "road.local",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#7f8d89"
-            }
-        ]
+        "stylers": [{
+            "color": "#7f8d89"
+        }]
     },
     {
         "featureType": "road.local",
         "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#7f8d89"
-            }
-        ]
+        "stylers": [{
+            "color": "#7f8d89"
+        }]
     },
     {
         "featureType": "transit",
         "elementType": "geometry",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#000000"
             },
             {
@@ -278,8 +239,7 @@ var styles = [
     {
         "featureType": "water",
         "elementType": "all",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#2b3638"
             },
             {
@@ -290,8 +250,7 @@ var styles = [
     {
         "featureType": "water",
         "elementType": "geometry",
-        "stylers": [
-            {
+        "stylers": [{
                 "color": "#2b3638"
             },
             {
@@ -302,64 +261,50 @@ var styles = [
     {
         "featureType": "water",
         "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#24282b"
-            }
-        ]
+        "stylers": [{
+            "color": "#24282b"
+        }]
     },
     {
         "featureType": "water",
         "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#24282b"
-            }
-        ]
+        "stylers": [{
+            "color": "#24282b"
+        }]
     },
     {
         "featureType": "water",
         "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
+        "stylers": [{
+            "visibility": "off"
+        }]
     },
     {
         "featureType": "water",
         "elementType": "labels.text",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
+        "stylers": [{
+            "visibility": "off"
+        }]
     },
     {
         "featureType": "water",
         "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
+        "stylers": [{
+            "visibility": "off"
+        }]
     },
     {
         "featureType": "water",
         "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
+        "stylers": [{
+            "visibility": "off"
+        }]
     },
     {
         "featureType": "water",
         "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
+        "stylers": [{
+            "visibility": "off"
+        }]
     }
 ];
