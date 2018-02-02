@@ -12,15 +12,15 @@ function ViewModel() {
 
     // Populates Info Window with all the locations listed on the
     // markers.js file. 
-    self.populateInfoWindow = function(marker, infowindow){   
+    self.populateInfoWindow = function(marker, infowindow) {
         // Check to make sure the infowindow is not already opened on this marker.
-        if (infowindow.marker != marker){
+        if (infowindow.marker != marker) {
             // Clear the infowindow content to give the streetview time to load.
             infowindow.setContent('');
             infowindow.marker = marker;
-            
+
             var streetViewService = new google.maps.StreetViewService();
-            var radius =100;
+            var radius = 100;
 
             // Load Wikipedia Articles
             // Wikipedias URL API
@@ -34,20 +34,22 @@ function ViewModel() {
             $.ajax({
                 url: wikiUrl,
                 dataType: 'jsonp'
-            }).done(function (response) {
+            }).done(function(response) {
                 var articleList = response[1];
-                for (var i = 0; i < articleList.length; i++){
+                for (var i = 0; i < articleList.length; i++) {
                     self.wikiarticles([]);
                     articleStr = articleList[i];
                     var url = 'http://es.wikipedia.org/wiki/' + articleStr;
-                    self.wikiarticles.push({url:'<a class="wiki-links" href="' 
-                        + url 
-                        + '" target="_blank">' 
-                        + articleStr 
-                        + '</a>'});
+                    self.wikiarticles.push({
+                        url: '<a class="wiki-links" href="' +
+                            url +
+                            '" target="_blank">' +
+                            articleStr +
+                            '</a>'
+                    });
                 };
-                    //clearTimeout(wikiRequestTimeout);
-            }).fail(function (jqXHR, textStatus) {
+                //clearTimeout(wikiRequestTimeout);
+            }).fail(function(jqXHR, textStatus) {
                 alert("There was an error loading Relevant Wikipedia Links");
             });
 
@@ -63,14 +65,14 @@ function ViewModel() {
                     self.htmlContent = '<div>' + marker.title + '</div><div id="pano"></div>';
                     infowindow.setContent(self.htmlContent)
                     var panoramaOptions = {
-                    position: nearStreetViewLocation,
-                    pov: {
-                        heading: heading,
-                        pitch: 30
-                    }
-                };
-                var panorama = new google.maps.StreetViewPanorama(
-                    document.getElementById('pano'), panoramaOptions);
+                        position: nearStreetViewLocation,
+                        pov: {
+                            heading: heading,
+                            pitch: 30
+                        }
+                    };
+                    var panorama = new google.maps.StreetViewPanorama(
+                        document.getElementById('pano'), panoramaOptions);
                 } else {
                     self.htmlContent = '<div>' + marker.title + '</div>' +
                         '<div>No Street View Found</div>';
@@ -83,7 +85,7 @@ function ViewModel() {
             // Open the infowindow on the correct marker.
             infowindow.open(map, marker);
 
-            infowindow.addListener('closeclick', function(){
+            infowindow.addListener('closeclick', function() {
                 infowindow.marker = null;
             });
         };
@@ -94,9 +96,9 @@ function ViewModel() {
     self.populateAndBounceMarker = function() {
         self.populateInfoWindow(this, self.largeInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
-        setTimeout((function(){
+        setTimeout((function() {
             this.setAnimation(null);
-        }).bind(this),2100);
+        }).bind(this), 2100);
     };
 
     //Initializes Map with the Google Maps API and uses the markers info
