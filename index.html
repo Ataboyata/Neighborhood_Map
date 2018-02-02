@@ -18,7 +18,12 @@
                     <h1>Queretaro's Landmarks and Historical Sites</h1>
                     <hr class="sidebar_hr">
                     <div>
-                        <p id="wikipedia-header">Click on a marker or a location name on the list to see a street view image and relevant Wikipedia Articles</p>
+                        <p id="wikipedia-header">Relevant Wikipedia Articles</p>
+                        <ul data-bind="foreach: wikiarticles">
+                            <a href="#">
+                                <li data-bind="html: url"></li>
+                            </a>
+                        </ul>
                     </div>
                     <hr class="sidebar_hr">
                     <!-- Search Box -->
@@ -26,9 +31,7 @@
                     <br><br>
                     <!-- Populates Markers with Status == Visible -->
                     <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
-                        <a href="#">
-                            <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li>
-                        </a>
+                        <li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li>
                     </ul>
             </nav>
             <main class="col p-0 navbar-inverse">
