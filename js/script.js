@@ -59,7 +59,7 @@ function ViewModel() {
                 var response = response[1];
                 for (var i = 0; i < articleList.length; i++){
                         articleStr = articleList[i];
-                        var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+                        var url = 'http://es.wikipedia.org/wiki/' + articleStr;
                         $wikiElem.append(
                             '<li><a class="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li>');
                     };
@@ -79,7 +79,7 @@ function ViewModel() {
 
                     for (var i = 0; i < articleList.length; i++){
                         articleStr = articleList[i];
-                        var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+                        var url = 'http://es.wikipedia.org/wiki/' + articleStr;
                         $wikiElem.append(
                             '<li><a class="wiki-links" href="' + url + '" target="_blank">' + articleStr + '</a></li>');
                     };
@@ -169,7 +169,7 @@ function ViewModel() {
 
 // Displays an error message in case the Google Maps API didn't function
 // properly
-googleError = function googleError() {
+var googleError = function() {
     alert('Google Maps did not load, please contact system administrator');
 };
 
